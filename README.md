@@ -1,4 +1,4 @@
-# HarD-BOT
+<h1 align="center"> HarD-BOT </h1>
 Music bot template for Discord
 
 
