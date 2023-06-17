@@ -1,5 +1,6 @@
 <h1 align="center"> HarD-BOT </h1>
 Music bot template for Discord
+This is a fork from [discord-music-bot](https://github.com/3chospirits/discord-music-bot) made by [@3chospirits](https://github.com/3chospirits)
 
 
 ## Setup instructions:
