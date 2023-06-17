@@ -1,7 +1,7 @@
 const { SlashCommandBuilder }   = require("@discordjs/builders")
 const { useMasterPlayer }       = require("discord-player")
 const { EmbedBuilder }          = require("discord.js")
-const Language                  = require("../strings.js");
+const Language                  = require("../strings.js")
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,8 +10,8 @@ module.exports = {
     .addStringOption((option) => option.setName(Language.play.name).setDescription(Language.play.option).setRequired(true))
     ,
     run: async ({ interaction }) => {
-        const player = useMasterPlayer();
-        const channel = interaction.member.voice.channel;
+        const player = useMasterPlayer()
+        const channel = interaction.member.voice.channel
         if (!channel) return interaction.editReply(Language.play.nochannel)
 
         const queue = await player.nodes.create(interaction.guild)
@@ -32,8 +32,8 @@ module.exports = {
                     nodeOptions: {
                         metadata: interaction
                     }
-                });
-                await interaction.editReply(Language.play.loading);
+                })
+                await interaction.editReply(Language.play.loading)
                 embed
                     .setDescription(`**[${result.tracks[0].title}](${result.tracks[0].url})**` + Language.play.songadded+ `\n\n\n` +
                                         Language.song.requestedby + `<@${result.requestedBy.id}>`)
@@ -43,7 +43,7 @@ module.exports = {
                     embeds: [embed]
                 })
             } catch (e) {
-                return interaction.editReply(Language.system.error + e);
+                return interaction.editReply(Language.system.error + e)
             }
         }
     }

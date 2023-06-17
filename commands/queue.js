@@ -1,7 +1,7 @@
 const { SlashCommandBuilder }   = require("@discordjs/builders")
 const { useMasterPlayer }       = require("discord-player")
 const { EmbedBuilder  }         = require("discord.js")
-const Language                  = require("../strings.js");
+const Language                  = require("../strings.js")
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,7 +9,7 @@ module.exports = {
     .setDescription(Language.queue.description)
     .addNumberOption((option) => option.setName(Language.queue.name).setDescription(Language.queue.option).setMinValue(1)),
     run: async ({ interaction }) => {
-        const player = useMasterPlayer();
+        const player = useMasterPlayer()
         const queue = player.nodes.get(interaction.guildId)
         if (!queue || !queue.node.isPlaying()){
             return await interaction.editReply(Language.queue.nosongs)
@@ -42,7 +42,7 @@ module.exports = {
                     ]
                 })
             }catch (e) {
-                return interaction.followUp(Language.system.error + e);
+                return interaction.followUp(Language.system.error + e)
             }
         }
 

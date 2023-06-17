@@ -4,7 +4,7 @@ const fs        = require("fs")
 const { REST }  = require("@discordjs/rest")
 const { Routes }= require("discord-api-types/v9")
 const { Player }= require("discord-player")
-const Language = require("./strings.js");
+const Language = require("./strings.js")
 
 
 dotenv.config()
@@ -61,7 +61,7 @@ if (LOAD_SLASH) {
     client.on("interactionCreate", (interaction) => {
         async function handleCommand() {
             if (!interaction.isCommand()) return
-            await player.extractors.loadDefault();
+            await player.extractors.loadDefault()
             const slashcmd  = client.slashcommands.get(interaction.commandName)
             console.log(
                 Language.system.run + interaction.commandName + `\n` +
