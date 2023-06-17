@@ -10,7 +10,9 @@ npm i dotenv discord.js discord-player @discordjs/voice @discordjs/rest @discord
 ```
 
 2 - Setup your app token to the .env file
+
 3 - Setup your CLIENT_ID and GUILD_ID for the bot on index.js file
+
 4 - Edit the strings.js file to your preferred language
 
 5 - Go to https://discord.com/developers/applications/YOUR_BOT_ID/bot and enable "MESSAGE CONTENT INTENT"
@@ -36,5 +38,3 @@ node index.js
 ## 📝 License
 
 Check the [LICENSE](LICENSE.md) for more details.
-
-[⬆ Back to top](#HarD-BOT)<br>
