@@ -9,10 +9,10 @@ const Language = require("./strings.js")
 
 dotenv.config()
 const TOKEN     = process.env.TOKEN
-const LOAD_SLASH= process.argv[2] == "load"
+const LOAD_SLASH= process.argv[2] == "!"
 
-const CLIENT_ID = ""
-const GUILD_ID  = ""
+const CLIENT_ID = "1157314816176836708"
+const GUILD_ID  = "1157300877917421678"
 
 const client = new Discord.Client({
     intents: [
