@@ -4,15 +4,14 @@ const fs        = require("fs")
 const { REST }  = require("@discordjs/rest")
 const { Routes }= require("discord-api-types/v9")
 const { Player }= require("discord-player")
-const Language = require("./strings.js")
-
+const Language  = require("./strings.js")
 
 dotenv.config()
 const TOKEN     = process.env.TOKEN
 const LOAD_SLASH= process.argv[2] == "load"
 
-const CLIENT_ID = ""
-const GUILD_ID  = ""
+const CLIENT_ID = "" // Your Client ID
+const GUILD_ID = [ "", "", ] // Your Server/Guilds IDs, comma separated ex: [ "1234", "5678"]
 
 const client = new Discord.Client({
     intents: [
@@ -41,9 +40,17 @@ for (const file of slashFiles){
 }
 
 if (LOAD_SLASH) {
+    for (const server of GUILD_ID){
+        deploy_commands(server)
+    }
+}else {
+    deploy_server()
+}
+
+function deploy_commands(server) {
     const rest  = new REST({ version: "9"}).setToken(TOKEN)
     console.log(Language.system.loading)
-    rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {body: commands})
+    rest.put(Routes.applicationGuildCommands(CLIENT_ID, server), {body: commands})
     .then(() => {
         console.log(Language.system.success)
         process.exit(0)
@@ -54,7 +61,9 @@ if (LOAD_SLASH) {
             process.exit(1)
         }
     })
-}else {
+}
+
+function deploy_server() {
     client.on("ready", () => {
         console.log(Language.system.logged + client.user.tag)
     })
