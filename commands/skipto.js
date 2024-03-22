@@ -1,5 +1,5 @@
 const { SlashCommandBuilder }   = require("@discordjs/builders")
-const { useMasterPlayer }       = require("discord-player")
+const { useMainPlayer }         = require("discord-player")
 const { EmbedBuilder }          = require("discord.js")
 const Language                  = require("../strings.js")
 
@@ -9,7 +9,7 @@ module.exports = {
     .setDescription(Language.skipto.description)
     .addNumberOption((option) => option.setName(Language.skipto.name).setDescription(Language.skipto.option).setMinValue(1).setRequired(true)),
     run: async ({ interaction }) => {
-        const player = useMasterPlayer()
+        const player = useMainPlayer()
         const queue = player.nodes.get(interaction.guildId)
 
         if (!queue){

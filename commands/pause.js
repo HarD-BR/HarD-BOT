@@ -1,5 +1,5 @@
 const { SlashCommandBuilder }   = require("@discordjs/builders")
-const { useMasterPlayer }       = require("discord-player")
+const { useMainPlayer }         = require("discord-player")
 const Language                  = require("../strings.js")
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
     .setName(Language.pause.command)
     .setDescription(Language.pause.description),
     run: async ({ interaction }) => {
-        const player = useMasterPlayer()
+        const player = useMainPlayer()
         const queue = player.nodes.get(interaction.guildId)
 
         if (!queue){
