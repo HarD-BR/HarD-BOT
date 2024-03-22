@@ -61,7 +61,8 @@ const queue = {
 }
 
 const song = {
-    duration: "Duration : ",
+    duration: "Duration: ",
+    provider: "Provider: ",
     requestedby: "Requested by: "
 }
 
